@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import './App.css'
-import ReactFlow from 'reactflow';
-import 'reactflow/dist/style.css';
+import Home from './pages/Home';
 function App() {
 
   return (
     <div className="app">
-      hello world!
+      <Home />
     </div>
   )
 }
