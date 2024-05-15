@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState } from 'react';
-import ReactFlow, { Background, Controls, MiniMap } from 'reactflow';
+import { useCallback, useState } from 'react';
+import ReactFlow, { Background, Controls, MiniMap, applyEdgeChanges, applyNodeChanges } from 'reactflow';
 import 'reactflow/dist/style.css';
 import initEdges from '../data/edges'
 import initNodes from '../data/nodes'
@@ -8,11 +8,24 @@ import initNodes from '../data/nodes'
 function Home() {
     const [nodes, setNodes] = useState(initNodes)
     const [edges, setEdges] = useState(initEdges)
+
+    const onNodesChange = useCallback(
+        (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+        [setNodes]
+    );
+    const onEdgesChange = useCallback(
+        (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+        [setEdges]
+    );
+
     return (
         <div style={{ height: '88vh', width: '90vw' }}>
             <ReactFlow
                 nodes={nodes}
                 edges={edges}
+                onNodesChange={onNodesChange}
+                onEdgesChange={onEdgesChange}
+                fitView
             >
                 <Background />
                 <Controls />
