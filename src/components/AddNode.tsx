@@ -14,8 +14,14 @@ import { Input } from "./ui/input"
 import { Label } from "./ui/label"
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
+import { Node } from "reactflow"
 
-function AddNode({ nodes, setNodes }) {
+type Props = {
+    nodes: Node[],
+    setNodes: React.Dispatch<React.SetStateAction<Node[]>>
+}
+
+function AddNode({ nodes, setNodes }: Props) {
     const [nodename, setNodename] = useState('')
     const [nodecolor, setNodecolor] = useState('#fff')
     const [nodeTextcolor, setNodeTextcolor] = useState('#000')
@@ -26,8 +32,8 @@ function AddNode({ nodes, setNodes }) {
             position: { x: 0, y: 0 },
             style: { background: nodecolor, color: nodeTextcolor }
         },]
-        setNodes((prev: any) => [...prev, ...newnodes])
-        console.log(newnodes)
+        setNodes((prev: Node[]) => [...prev, ...newnodes])
+        // console.log(newnodes)
     }
 
     return (
@@ -35,7 +41,7 @@ function AddNode({ nodes, setNodes }) {
             <SheetTrigger asChild>
                 <Button variant="outline">Add Node</Button>
             </SheetTrigger>
-            <SheetContent side={'left'}>
+            <SheetContent side={'right'}>
                 <SheetHeader>
                     <SheetTitle>Edit profile</SheetTitle>
                     <SheetDescription>
@@ -82,4 +88,4 @@ function AddNode({ nodes, setNodes }) {
     )
 }
 
-export default AddNode
+export default AddNode;
