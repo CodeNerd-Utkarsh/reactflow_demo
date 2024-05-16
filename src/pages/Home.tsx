@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import AddNode from '@/components/AddNode';
 import CustomEdge from '@/components/CustomEdge';
+import CustomNode from '@/components/CustomNode';
 import { initEdges } from '@/data/edges';
 import { initNodes } from '@/data/nodes';
 import { useCallback } from 'react';
@@ -10,6 +11,9 @@ import 'reactflow/dist/style.css';
 const edgeTypes = {
     'custom-edge': CustomEdge,
 };
+const nodeTypes = {
+    'custom-node': CustomNode,
+}
 function Home() {
 
     const [nodes, setNodes, onNodesChange] = useNodesState(initNodes);
@@ -32,11 +36,9 @@ function Home() {
     );
     const defaultEdgeOptions = { animated: true };
 
-
     // const deleteNode = (id: string) => {
     //     setNodes(nodes.filter(node => node.id !== id));
     // };
-
 
     return (
         <>
@@ -64,9 +66,10 @@ function Home() {
                     onEdgesChange={onEdgesChange}
                     onConnect={onConnect}
                     edgeTypes={edgeTypes}
-                // defaultEdgeOptions={defaultEdgeOptions}
+                    nodeTypes={nodeTypes}
+                    defaultEdgeOptions={defaultEdgeOptions}
                 >
-                    <Background color="#262626" variant={BackgroundVariant.Cross} />
+                    <Background color="#fff" variant={BackgroundVariant.Cross} style={{ backgroundColor: '#000' }} />
                     <Controls />
                     <MiniMap />
                 </ReactFlow>

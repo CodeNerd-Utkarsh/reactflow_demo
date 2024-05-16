@@ -1,3 +1,35 @@
+# Interactly – FRONT END DEVELOPER –Coding Task ReactFlow Render
+
+## Introduction
+ 
+You are required to develop a web page and create CUD (create, Update, Delete) operations on a graph using the reactflow.dev library in ReactJS Redux. 
+
+## Task :
+* Create a React project and create a page with name ‘Home’’
+* Create a button on left side ‘Create node’ and upon clicking on it, a node in circle/rectange shape should get created on graph panel.
+* Also implement connecting two nodes with a branch.
+* On mouse over to a node show ‘X’ icon in red color , upon clicking that icon delete that node. Similarly do the same for branches. 
+* Upon clicking on the node open a popup window on right side to give a title to the node. Once saved it should appear on top of the node.
+* Record a video of working of creating nodes, adding branches, deleting nodes and deleting branches. 
+
+
+
+Method of Submission
+ 
+* You can develop and test the application in your localhost or use tools like LocalTunnel to have domain routing to localhost.
+* Upload the entire repository in your github profile (create one if you don’t have it) and share the link of the repo. 
+<!-- * Share the following through mail to fareeda@interactly.video with CC to vishichaurasiya@gmail.com with subject as ‘Frontend Task ReactFlow Render - <Your name>’ ,  -->
+* Your github project link.
+* Attach recording of the working application using Loom or similar recording tools.
+* Attach your latest resume if not already shared.
+
+
+
+ALL THE BEST! 😊
+
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

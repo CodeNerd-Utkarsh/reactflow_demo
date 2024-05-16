@@ -28,9 +28,9 @@ function AddNode({ nodes, setNodes }: Props) {
     function handleSubmit() {
         const newnodes = [...nodes, {
             id: `${uuidv4()}`,
-            data: { label: nodename },
-            position: { x: 0, y: 0 },
-            style: { background: nodecolor, color: nodeTextcolor }
+            type: 'custom-node',
+            data: { label: nodename, background: nodecolor, color: nodeTextcolor },
+            position: { x: 200, y: 0 },
         },]
         setNodes((prev: Node[]) => [...prev, ...newnodes])
         // console.log(newnodes)
@@ -63,7 +63,7 @@ function AddNode({ nodes, setNodes }: Props) {
                         </Label>
                         <Input id="nodeBG"
                             type="color"
-                            defaultValue={nodecolor}
+                            defaultValue='#fff'
                             onChange={(e) => setNodecolor(e.target.value)}
                             className="col-span-3" />
                     </div>
@@ -73,7 +73,7 @@ function AddNode({ nodes, setNodes }: Props) {
                         </Label>
                         <Input id="nodeTextcolor"
                             type="color"
-                            defaultValue={nodeTextcolor}
+                            defaultValue='#000'
                             onChange={(e) => setNodeTextcolor(e.target.value)}
                             className="col-span-3" />
                     </div>
