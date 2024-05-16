@@ -33,7 +33,6 @@ function AddNode({ nodes, setNodes }: Props) {
             position: { x: 200, y: 0 },
         },]
         setNodes((prev: Node[]) => [...prev, ...newnodes])
-        // console.log(newnodes)
     }
 
     return (

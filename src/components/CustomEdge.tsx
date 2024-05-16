@@ -35,7 +35,7 @@ export default function CustomEdge({ id, sourceX, sourceY, targetX, targetY }: {
                     }}
                     className="nodrag nopan"
                     onClick={() => {
-                        setEdges((es) => es.filter((e) => e.id !== id));
+                        setEdges((edges) => edges.filter((ed) => ed.id !== id));
                     }}
                 >
                     X

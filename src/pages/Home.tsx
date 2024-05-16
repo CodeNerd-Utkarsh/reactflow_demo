@@ -19,14 +19,6 @@ function Home() {
     const [nodes, setNodes, onNodesChange] = useNodesState(initNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initEdges);
 
-    // const onNodesChange = useCallback(
-    //     (changes: NodeChange[]) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    //     [setNodes]
-    // );
-    // const onEdgesChange = useCallback(
-    //     (changes: EdgeChange[]) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-    //     [setEdges]
-    // );
     const onConnect = useCallback(
         (connection: Connection) => {
             const edge = { ...connection, type: 'custom-edge' };
@@ -36,29 +28,11 @@ function Home() {
     );
     const defaultEdgeOptions = { animated: true };
 
-    // const deleteNode = (id: string) => {
-    //     setNodes(nodes.filter(node => node.id !== id));
-    // };
-
     return (
         <>
             <div style={{ height: '88vh', width: '90vw' }}>
                 <AddNode nodes={nodes} setNodes={setNodes} />
-                {/* <div className='cursor-pointer'>
-                    {nodes.map(node => (
-                        <div key={node.id}
-                        // onMouseOver={() => showDeleteIcon(node.id)}
-                        >
-                            {node.data.label}
-                            <span
-                                style={{ color: 'red' }}
-                                onClick={() => deleteNode(node.id)}
-                            >
-                                X
-                            </span>
-                        </div>
-                    ))}
-                </div> */}
+
                 <ReactFlow
                     nodes={nodes}
                     edges={edges}

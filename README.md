@@ -18,7 +18,6 @@ Method of Submission
  
 * You can develop and test the application in your localhost or use tools like LocalTunnel to have domain routing to localhost.
 * Upload the entire repository in your github profile (create one if you don’t have it) and share the link of the repo. 
-<!-- * Share the following through mail to fareeda@interactly.video with CC to vishichaurasiya@gmail.com with subject as ‘Frontend Task ReactFlow Render - <Your name>’ ,  -->
 * Your github project link.
 * Attach recording of the working application using Loom or similar recording tools.
 * Attach your latest resume if not already shared.
