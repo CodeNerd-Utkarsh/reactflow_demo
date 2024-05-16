@@ -1,42 +1,47 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import AddNode from '@/components/AddNode';
+import { initEdges } from '@/data/edges';
+import { initNodes } from '@/data/nodes';
 import { useCallback, useState } from 'react';
-import ReactFlow, { Background, Controls, MiniMap, addEdge, applyEdgeChanges, applyNodeChanges } from 'reactflow';
+import ReactFlow, { Background, Connection, Controls, EdgeChange, MiniMap, NodeChange, addEdge, applyEdgeChanges, applyNodeChanges } from 'reactflow';
 import 'reactflow/dist/style.css';
-import initEdges from '../data/edges'
-import initNodes from '../data/nodes'
 
 function Home() {
     const [nodes, setNodes] = useState(initNodes)
     const [edges, setEdges] = useState(initEdges)
 
     const onNodesChange = useCallback(
-        (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+        (changes: NodeChange[]) => setNodes((nds) => applyNodeChanges(changes, nds)),
         [setNodes]
     );
     const onEdgesChange = useCallback(
-        (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+        (changes: EdgeChange[]) => setEdges((eds) => applyEdgeChanges(changes, eds)),
         [setEdges]
     );
     const onConnect = useCallback(
-        (connection) => setEdges((eds) => addEdge(connection, eds)),
+        (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),
         [setEdges]
     );
+    const defaultEdgeOptions = { animated: true };
 
     return (
-        <div style={{ height: '88vh', width: '90vw' }}>
-            <ReactFlow
-                nodes={nodes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                fitView
-            >
-                <Background />
-                <Controls />
-                <MiniMap />
-            </ReactFlow>
-        </div>
+        <>
+            <div style={{ height: '88vh', width: '90vw' }}>
+                <AddNode nodes={nodes} setNodes={setNodes} />
+                <ReactFlow
+                    nodes={nodes}
+                    edges={edges}
+                    onNodesChange={onNodesChange}
+                    onEdgesChange={onEdgesChange}
+                    onConnect={onConnect}
+                    defaultEdgeOptions={defaultEdgeOptions}
+                >
+                    <Background />
+                    <Controls />
+                    <MiniMap />
+                </ReactFlow>
+            </div >
+        </>
     )
 }
 

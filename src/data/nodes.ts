@@ -1,9 +1,12 @@
-export default [
+import { Node } from "reactflow";
+
+export const initNodes: Node[] = [
     {
         id: '1',
         type: 'input',
         data: { label: 'Input Node' },
         position: { x: 250, y: 25 },
+        style: { background: '#454587', color: '#fff' }
     },
 
     {
